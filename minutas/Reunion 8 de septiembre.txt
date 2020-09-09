@@ -7,8 +7,7 @@ Escritor: César Roudergue
 Temas:
 - Problemas y soluciones android studio:
 	- 2 integrantes con problemas para emular por equipos personales
-	- plan b: probar en un telefono real
-	- Se continuará busqueda para otras soluciones
+	- Explorar más soluciones aparte de android studio
 
 - Avance mensajes de error:
 	- Creados mensajes iniciales, posiblemente haya que añadir otros
