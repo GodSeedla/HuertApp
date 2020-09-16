@@ -2,6 +2,7 @@ package com.example.holamundete
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.firebase.analytics.FirebaseAnalytics
 
 class MainActivity : AppCompatActivity() {
 
@@ -9,27 +10,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Analytics Event
+        val analytics = FirebaseAnalytics.getInstance(this)
+        val bundle = Bundle()
+        bundle.putString("message", "Integracion de Firebase completa")
+        analytics.logEvent("InitScreen", bundle)
+
     }
 
-    private fun variablesYconstantes(){
-
-        val largo = 5
-        val ancho = 4
-        val area = ancho*largo
-        println(area)
-    }
-
-    private fun whensentence(){
-
-        val country = "japon"
-
-        when (country){
-            "japon" -> {
-                println("Nihongo desu")
-            } "Chile" -> {
-                println("Viva chile conchaetumare")
-          }
-        }
-    }
 
 }
