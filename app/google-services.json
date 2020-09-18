@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "203041968237",
+    "firebase_url": "https://huertapp-bcd11.firebaseio.com",
+    "project_id": "huertapp-bcd11",
+    "storage_bucket": "huertapp-bcd11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203041968237:android:1e38a68dcc2717d79faf64",
+        "android_client_info": {
+          "package_name": "com.example.holamundete"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203041968237-osnqhlv1e0ecojdc913aipeq3ti14bgq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbVvDxGiThGTpFBafQRT_-6CxkSZk0EDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203041968237-osnqhlv1e0ecojdc913aipeq3ti14bgq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
