@@ -4,4 +4,4 @@ Avances hasta el momento sobre el proyecto:
   - Cesar mediante comunicaciones externas ha encontrado informacion fidedigna que servirá para ingresar datos a la BD del proyecto
   - En un trabajo en conjunto entre Joaquin, Jaime y Rodolfo se ha alcanzado que la aplicacion se conecte a Cloud Firestore y lea los datos ahí ingresados
   - Gracias al éxito de la conexion entre la aplicacion y la BD, Rodolfo se encarga de comenzar a rellenar esta ultima con informacion sobre cultivos.
-  
+  - Jaime modeló las vistas que tiene nuestra App y ordenó estas
