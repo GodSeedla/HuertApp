@@ -1,0 +1,7 @@
+Avances hasta el momento sobre el proyecto:
+  - Gracias al trabajo en conjunto de Jaime y Joaquin, se ha creado las dos primeras pantallas/interfaces de la aplicación
+  - Rodolfo ha linkeado el proyecto a Firebase, creando al mismo tiempo la BD de la aplicación
+  - Cesar mediante comunicaciones externas ha encontrado informacion fidedigna que servirá para ingresar datos a la BD del proyecto
+  - En un trabajo en conjunto entre Joaquin, Jaime y Rodolfo se ha alcanzado que la aplicacion se conecte a Cloud Firestore y lea los datos ahí ingresados
+  - Gracias al éxito de la conexion entre la aplicacion y la BD, Rodolfo se encarga de comenzar a rellenar esta ultima con informacion sobre cultivos.
+  
