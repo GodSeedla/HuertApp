@@ -6,14 +6,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import com.google.firebase.analytics.FirebaseAnalytics
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_menu_login.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class menu_login : AppCompatActivity(), View.OnClickListener {
     private var button: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_menu_login)
 
         // Analytics Event
         val analytics = FirebaseAnalytics.getInstance(this)
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         button2.setOnClickListener{
-            startActivity(Intent(this@MainActivity, MenuP::class.java) )
+            startActivity(Intent(this@menu_login, menu_principal::class.java) )
         }
     }
 
