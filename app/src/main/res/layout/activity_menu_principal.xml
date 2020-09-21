@@ -1,31 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".menu_principal">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    tools:context=".menu_principal">
 
     <Button
         android:id="@+id/infoButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mostrar Informacion"
+        android:layout_width="218dp"
+        android:layout_height="151dp"
+        android:layout_marginTop="178dp"
+        android:layout_marginBottom="402dp"
+        android:background="@drawable/boton_huerta_digital"
+        android:text="@string/huerta_digital"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/cultivoTextView"
-        android:layout_width="248dp"
-        android:layout_height="35dp"
-        android:hint="Aqui aparece info del cultivo"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26999998" />
 </androidx.constraintlayout.widget.ConstraintLayout>
