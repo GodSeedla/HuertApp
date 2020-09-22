@@ -21,20 +21,20 @@ class huerta_digital : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         busquedaButton.setOnClickListener{
-            if (preguntartextView.text.isNotEmpty()){
-                if (preguntartextView.text == "Zanahoria"){
-                    db.collection("cultivo").document("Zanahoria").get().addOnSuccessListener {
-                        nombreCultivoTextView.text = "Zanahoria" as String?
+
+            var textito = preguntarEditText.text.toString()
+
+            if (textito.isNotEmpty()){
+                while (db.collection("cultivo").document(textito) != null){
+                    db.collection("cultivo").document(textito).get().addOnSuccessListener {
+                        nombreCultivoTextView.text = textito
                         nombreCientificoTextView.text = it.get("Nombre_Cientifico") as String?
                         descripcionTextView.text = it.get("Descripcion") as String?
                     }
-                } else {
-                    resultadoBusquedaTextView.text = "No se ha encontrado"
+                    break
                 }
+                resultadoBusquedaTextView.text = "No se ha encontrado nada" as String?
             }
         }
     }
-
-
 }
-
