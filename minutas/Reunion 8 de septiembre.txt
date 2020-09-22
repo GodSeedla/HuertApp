@@ -1,0 +1,17 @@
+Godseedla
+Motivo reunión: Reunión semanal
+Fecha: 08/09/2020
+Presentes: Integrantes Godseedla
+Escritor: César Roudergue
+
+Temas:
+- Problemas y soluciones android studio:
+	- 2 integrantes con problemas para emular por equipos personales
+	- Explorar más soluciones aparte de android studio
+
+- Avance mensajes de error:
+	- Creados mensajes iniciales, posiblemente haya que añadir otros
+
+- Comentarios:
+	- Al momento de usar la aplicacion, nos percatamos de que deberemos cambiar el lenjuage seleccionado para el desarrollo de la app, por lo que pasaremos de usar Java a usar Kotlin.
+ 	- Se han creado y linkeado los diseños de los modelos de las Bases de Datos.
