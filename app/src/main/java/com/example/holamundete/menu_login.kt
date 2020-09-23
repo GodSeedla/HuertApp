@@ -40,6 +40,7 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
         button3.setOnClickListener{
             var user = userText.text.toString()
             var password = PasswordText.text.toString()
+            val length: Int
 
             if ((user.isNotEmpty() && password.isNotEmpty())){
 
@@ -47,15 +48,15 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
                     if(password == it.get("contraseña")){
                         startActivity(Intent(this@menu_login, menu_principal::class.java) )
                         Clean()
-                    }else if((user.isEmpty())&&(password.isEmpty())){
-                        println("PASA PERO NO FUNCA")
-                        errorView.text = "Ingrese una cuenta de usuario" as String? //NO FUNCAAAAA
                     }else{
                         errorView.text = "Nombre de usuario o Contraseña incorrecta" as String?
                     }
 
                 }
 
+            }
+            if((userText.text.toString().isEmpty()&&(PasswordText.text.toString().isEmpty()))){
+                errorView.text = "Ingrese una cuenta de usuario" as String?
             }
         }
 
