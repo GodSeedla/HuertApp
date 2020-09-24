@@ -2,4 +2,6 @@
     <string name="app_name">Hola mundete</string>
     <string name="huerta_digital">huerta digital</string>
     <color name="green">#64EC48</color>
+    <color name="negro">#000000</color>
+    <color name="blanco">#ffffff</color>
 </resources>

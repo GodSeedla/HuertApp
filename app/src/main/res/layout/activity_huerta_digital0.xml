@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".huerta_digital2">
+
+
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="119dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="251dp"
+        android:layout_marginTop="221dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="395dp"
+        android:background="#737171"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="119dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="221dp"
+        android:layout_marginEnd="246dp"
+        android:layout_marginBottom="395dp"
+        android:backgroundTint="#737171"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="119dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="251dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="554dp"
+        android:backgroundTint="#737171"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="119dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="246dp"
+        android:layout_marginBottom="554dp"
+        android:background="#737171"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
