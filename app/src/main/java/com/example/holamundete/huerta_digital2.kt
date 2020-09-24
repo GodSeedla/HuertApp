@@ -28,8 +28,8 @@ class huerta_digital2 : AppCompatActivity() {
         }else{
             button.setBackgroundColor(Color.GRAY)
         }
-        //+++++++++++++++++++++++++++++++++dejar "nomb1" como "nomb12"
-        if (pos12.getAlgo("nomb1") != " "){
+
+        if (pos12.getAlgo("nomb12") != " "){
             button6.setBackgroundColor(Color.GREEN)
         }else{
             button6.setBackgroundColor(Color.GRAY)
@@ -53,9 +53,9 @@ class huerta_digital2 : AppCompatActivity() {
             nombre_cientifico.setText(pos11.getAlgo("nombCien11"))
             descripcion.setText(pos11.getAlgo("desc11"))
         }
-        //++++++++++++++++++++++++++++++++dejar "pos11" como "pos12"
+
         if (posActual == "12"){
-            nombre_cultivo.setText(pos11.getAlgo("nomb12"))
+            nombre_cultivo.setText(pos12.getAlgo("nomb12"))
             nombre_cientifico.setText(pos12.getAlgo("nombCien12"))
             descripcion.setText(pos12.getAlgo("desc12"))
         }
