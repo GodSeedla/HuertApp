@@ -1,0 +1,22 @@
+Notas de liberación
+
+Huertapp 0.1
+
+Nuevas funcionalidades:
+	- Huerta virtual:
+		Puedes guardar cultivos en una huerta virtual
+		para ver su información cuando quieras.
+
+		Actualmente tenemos cuatro espacios para
+		guardar una fruta o verdura diferente en cada
+		uno.
+
+		En cada uno se puede agregar, visualizar o
+		eliminar cada cultivo.
+
+Problemas identificados:
+	- Ninguno.
+
+Problemas resueltos:
+	- Ninguno.
+

@@ -1,0 +1,34 @@
+Manual de usuario
+
+Al ingresar a la aplicación presione el botón
+"omitir inicio sesion" para ingresar al menú principal.
+
+En el menú principal presione el botón "huerta digital"
+para ver sus espacios de cultivos.
+
+Elija uno de los cuatro espacios de la huerta para guardar
+su primer cultivo
+
+Al seleccionar uno, se le mostrará una ventana en la que
+tendrá que escribir en el cuadro de texto la fruta o verdura
+que desea.
+
+Este nombre de la verdura se debe ingresar con la primera
+letra en mayúscula y sin tildes. Ejemplo de verdura: Apio.
+
+Presione el botón "buscar" tres veces para que aparezca la
+información de la fruta/verdura seleccionada. 
+Ejemplo: Información de Apio:
+	- Nombre Cultivo
+	- Nombre Científico
+	- Descripción
+
+Presione el botón "agregar" para agregar. 
+
+Ahora está guardado ese cultivo en el espacio de su huerta,
+para ver la información del cultivo, haga click sobre él.
+
+Para eliminar dicho cultivo, presione el botón "eliminar".
+
+Finalmente, para salir de la aplicación, cierre la aplicación
+desde su smartphone.
