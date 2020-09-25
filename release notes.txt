@@ -15,7 +15,9 @@ Nuevas funcionalidades:
 		eliminar cada cultivo.
 
 Problemas identificados:
-	- Ninguno.
+	- (Notable) Al agregar un cultivo a algunas de
+      las huertas, el botón para visualizarlas no
+      cambia de color
 
 Problemas resueltos:
 	- Ninguno.
