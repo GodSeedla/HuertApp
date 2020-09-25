@@ -103,7 +103,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/eliminar_huerta"
         android:layout_width="116dp"
         android:layout_height="70dp"
         android:layout_marginStart="42dp"
@@ -140,6 +140,20 @@
         android:layout_marginTop="428dp"
         android:layout_marginEnd="46dp"
         android:layout_marginBottom="267dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/posicion_actual"
+        android:layout_width="179dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="471dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="231dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

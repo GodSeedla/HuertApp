@@ -20,6 +20,10 @@ class guardar(val context:Context) {
     fun getAlgo(posNo:String):String{
         return almacenamiento.getString(posNo, " ")!!
     }
+
+    fun borrar(pos:String){
+        almacenamiento.edit().remove(pos).apply()
+    }
 }
 //para guardar datos se debe especificar el nombre/tipo y lo que contiene
 //ejemplo: pos11.guardarAlgo("Aji"[lo que contiene el dato], "nomb12"[el nombre del dato])

@@ -10,6 +10,7 @@ import com.example.holamundete.fun_guardar.Companion.pos12
 import com.example.holamundete.fun_guardar.Companion.pos21
 import com.example.holamundete.fun_guardar.Companion.pos22
 import com.example.holamundete.fun_guardar.Companion.posActual
+import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_huerta_digital0.*
 import kotlinx.android.synthetic.main.activity_huerta_digital2.*
 import kotlinx.android.synthetic.main.activity_huerta_digital2.button
@@ -52,24 +53,28 @@ class huerta_digital2 : AppCompatActivity() {
             nombre_cultivo.setText(pos11.getAlgo("nomb11"))
             nombre_cientifico.setText(pos11.getAlgo("nombCien11"))
             descripcion.setText(pos11.getAlgo("desc11"))
+            posicion_actual.setText("La posicion actual es " + posActual)
         }
 
         if (posActual == "12"){
             nombre_cultivo.setText(pos12.getAlgo("nomb12"))
             nombre_cientifico.setText(pos12.getAlgo("nombCien12"))
             descripcion.setText(pos12.getAlgo("desc12"))
+            posicion_actual.setText("La posicion actual es " + posActual)
         }
 
         if (posActual == "21"){
             nombre_cultivo.setText(pos21.getAlgo("nomb21"))
             nombre_cientifico.setText(pos21.getAlgo("nombCien21"))
             descripcion.setText(pos21.getAlgo("desc21"))
+            posicion_actual.setText("La posicion actual es " + posActual)
         }
 
         if (posActual == "22"){
             nombre_cultivo.setText(pos22.getAlgo("nomb"+posActual))
             nombre_cientifico.setText(pos22.getAlgo("nombCien"+posActual))
             descripcion.setText(pos22.getAlgo("desc"+posActual))
+            posicion_actual.setText("La posicion actual es " + posActual)
         }
 
         //las condiciones al apretar una huerta, si esta tiene un huerto nos lleva a la descripcion de este,
@@ -107,6 +112,30 @@ class huerta_digital2 : AppCompatActivity() {
                 startActivity(Intent(this@huerta_digital2, huerta_digital2::class.java) )
             }else{
                 startActivity(Intent(this@huerta_digital2, huerta_digital::class.java) )
+            }
+        }
+
+        eliminar_huerta.setOnClickListener{
+            if(posActual == "11"){
+                pos11.borrar("nomb" + posActual)
+                pos11.borrar("nombCien" + posActual)
+                pos11.borrar("desc" + posActual)
+                startActivity(Intent(this@huerta_digital2, huerta_digital2::class.java) )
+            }else if (posActual == "12"){
+                pos12.borrar("nomb" + posActual)
+                pos12.borrar("nombCien" + posActual)
+                pos12.borrar("desc" + posActual)
+                startActivity(Intent(this@huerta_digital2, huerta_digital2::class.java) )
+            }else if (posActual == "21"){
+                pos21.borrar("nomb" + posActual)
+                pos21.borrar("nombCien" + posActual)
+                pos21.borrar("desc" + posActual)
+                startActivity(Intent(this@huerta_digital2, huerta_digital2::class.java) )
+            }else if (posActual == "22"){
+                pos22.borrar("nomb" + posActual)
+                pos22.borrar("nombCien" + posActual)
+                pos22.borrar("desc" + posActual)
+                startActivity(Intent(this@huerta_digital2, huerta_digital2::class.java) )
             }
         }
     }
