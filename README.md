@@ -1,2 +1,4 @@
 # HuertApp
-Aplicacion de huertas bien bonita
+HuerApp es una app pensada para enseñarle al usuario el cómo crear su propia huerta y cómo mantener los cultivos dentro de la misma. Mostrando paso a paso cómo construir la huerta (esta podrá ser tradicional o vertical) como también dándole al usuario la facilidad de consultar una base de datos con la información completa de un cultivo, dónde podrá encontrar tips y videos de los cuidados, descripción, el tiempo de cosecha, la cantidad de riego del cultivo, entre otras más opciones.
+
+HuertApp estará enfocada en su mayoría al usuario principiante, aquel que posee un conocimiento muy limitado de cómo crear una hurta y mantener un cultivo sano, pero también está pensado para aquellos usuarios que toman este rubro como un hobbie, entregando así a los usuarios las opciones más completas con tal de beneficiar su experiencia tanto dentro como fuera de la aplicación
