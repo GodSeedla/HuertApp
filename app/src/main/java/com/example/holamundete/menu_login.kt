@@ -31,13 +31,52 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
         iniciarSesion!!.setOnClickListener(this)
     }
 
+    fun Clean(){
+        userText.text = null
+        PasswordText.text = null
+        errorView.text = null
+    }
+
+
     override fun onClick(p0: View?) {
-        button2.setOnClickListener{
-            startActivity(Intent(this@menu_login, menu_principal::class.java) )
-            Clean()
+        when(p0!!.id){
+            R.id.button2->{
+                startActivity(Intent(this@menu_login, menu_principal::class.java) )
+                Clean()
+            }
+            R.id.button3->{
+                    var user = userText.text.toString()
+                    var password = PasswordText.text.toString()
+                    val length: Int
+
+                    if ((user.isNotEmpty() && password.isNotEmpty())) {
+
+                        db.collection("usuario").document(user).get().addOnSuccessListener {
+                            if (password == it.get("contraseña")) {
+                                startActivity(Intent(this@menu_login, menu_principal::class.java))
+                                Clean()
+                            } else {
+                                errorView.text =
+                                    "Nombre de usuario o Contraseña incorrecta" as String?
+                            }
+
+                        }
+
+                    }
+                    if ((userText.text.toString().isEmpty() && (PasswordText.text.toString()
+                            .isEmpty()))
+                    ) {
+                        errorView.text = "Ingrese una cuenta de usuario" as String?
+                    }
+
+            }
         }
 
-        button3.setOnClickListener{
+
+    }
+
+
+/*        button3.setOnClickListener{
             var user = userText.text.toString()
             var password = PasswordText.text.toString()
             val length: Int
@@ -58,15 +97,8 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
             if((userText.text.toString().isEmpty()&&(PasswordText.text.toString().isEmpty()))){
                 errorView.text = "Ingrese una cuenta de usuario" as String?
             }
-        }
+        }*/
 
-    }
-
-    fun Clean(){
-        userText.text = null
-        PasswordText.text = null
-        errorView.text = null
-    }
 
 }
 
