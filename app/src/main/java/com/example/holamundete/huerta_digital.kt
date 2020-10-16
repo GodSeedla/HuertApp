@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import com.example.holamundete.fun_guardar.Companion.pos11
 import com.example.holamundete.fun_guardar.Companion.pos12
 import com.example.holamundete.fun_guardar.Companion.pos21
@@ -27,7 +26,7 @@ class huerta_digital : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_huerta_digital)
 
         busq = findViewById(R.id.busquedaButton)
-        add = findViewById(R.id.agregar)
+        add = findViewById(R.id.agregarButton)
         add!!.setOnClickListener(this)
         busq!!.setOnClickListener(this)
 
@@ -66,7 +65,7 @@ class huerta_digital : AppCompatActivity(), View.OnClickListener {
                 }
             }
 
-            R.id.agregar->{
+            R.id.agregarButton->{
                 //ifS para guardar los datos
                 if(posActual == "11" && nomb.isNotEmpty()){
                     pos11.guardarAlgo(nomb,"nomb"+ posActual)
