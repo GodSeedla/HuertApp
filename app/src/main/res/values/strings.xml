@@ -4,4 +4,17 @@
     <color name="green">#64EC48</color>
     <color name="negro">#000000</color>
     <color name="blanco">#ffffff</color>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="textview">TextView</string>
+    <string name="bienvenido_a_huertapp_por_favor_selecciona_una_huerta_para_continuar">Bienvenido a Huertapp, por favor selecciona una huerta para continuar</string>
+    <string name="agregar">Agregar</string>
+    <string name="descripcion_cultivo">Descripcion cultivo</string>
+    <string name="descripcioin">Descripcioin:</string>
+    <string name="nombre_cientifico">Nombre Cientifico</string>
+    <string name="cultivo">Cultivo</string>
+    <string name="nombre_del_cultivo">Nombre del Cultivo:</string>
+    <string name="buscar">Buscar</string>
+    <string name="ingresar_cultivo">Ingresar cultivo</string>
 </resources>

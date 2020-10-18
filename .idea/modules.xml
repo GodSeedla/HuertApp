@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Desktop-HuertApp.iml" filepath="$PROJECT_DIR$/.idea/modules/Desktop-HuertApp.iml" group="HuertApp" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HuertApp.iml" filepath="$PROJECT_DIR$/.idea/modules/HuertApp.iml" group="HuertApp" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/HuertApp-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/HuertApp-app.iml" group="HuertApp/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Huertapp/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/HuertApp.iml" filepath="$PROJECT_DIR$/.idea/HuertApp.iml" group="HuertApp" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="HuertApp/app" />
     </modules>
   </component>
 </project>

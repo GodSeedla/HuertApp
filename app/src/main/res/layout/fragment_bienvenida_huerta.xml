@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".bienvenida_huerta">
+
+    <TextView
+        android:id="@+id/bienvenida"
+        android:layout_width="306dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="257dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="344dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="@color/green"
+        android:contentDescription="@string/bienvenido_a_huertapp_por_favor_selecciona_una_huerta_para_continuar"
+        android:text="@string/bienvenido_a_huertapp_por_favor_selecciona_una_huerta_para_continuar"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Bienvenido a Huertapp, por favor selecciona una huerta para continuar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

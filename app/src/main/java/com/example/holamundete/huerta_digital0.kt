@@ -15,6 +15,11 @@ class huerta_digital0 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_huerta_digital0)
+        posActual = " "
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment, bienvenida_huerta())
+            commit()
+        }
 
         //if que cambian el color de la huerta si hay algo dentro de ella a verde
         if (pos11.getAlgo("nomb11") != " "){
@@ -46,36 +51,60 @@ class huerta_digital0 : AppCompatActivity() {
         button_pos11.setOnClickListener{
             posActual = "11"
             if (pos11.getAlgo("nomb11") != " "){
-                startActivity(Intent(this@huerta_digital0, huerta_digital2::class.java) )
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment, infCultivo())
+                    commit()
+                }
             }else{
-                startActivity(Intent(this@huerta_digital0, huerta_digital::class.java) )
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment, agregarCulti())
+                    commit()
+                }
             }
         }
 
         button_pos12.setOnClickListener{
             posActual = "12"
             if (pos12.getAlgo("nomb12") != " "){
-                startActivity(Intent(this@huerta_digital0, huerta_digital2::class.java) )
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment, infCultivo())
+                    commit()
+                }
             }else{
-                startActivity(Intent(this@huerta_digital0, huerta_digital::class.java) )
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment, agregarCulti())
+                    commit()
+                }
             }
         }
 
         button_pos21.setOnClickListener{
             posActual = "21"
             if (pos21.getAlgo("nomb21") != " "){
-                startActivity(Intent(this@huerta_digital0, huerta_digital2::class.java) )
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment, infCultivo())
+                    commit()
+                }
             }else{
-                startActivity(Intent(this@huerta_digital0, huerta_digital::class.java) )
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment, agregarCulti())
+                    commit()
+                }
             }
         }
 
         button_22.setOnClickListener{
             posActual = "22"
             if (pos22.getAlgo("22") != " "){
-                startActivity(Intent(this@huerta_digital0, huerta_digital2::class.java) )
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment, infCultivo())
+                    commit()
+                }
             }else{
-                startActivity(Intent(this@huerta_digital0, huerta_digital::class.java) )
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment, agregarCulti())
+                    commit()
+                }
             }
         }
     }

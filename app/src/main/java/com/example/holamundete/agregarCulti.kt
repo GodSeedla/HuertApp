@@ -1,9 +1,10 @@
 package com.example.holamundete
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import com.example.holamundete.fun_guardar.Companion.pos11
 import com.example.holamundete.fun_guardar.Companion.pos12
@@ -13,26 +14,36 @@ import com.example.holamundete.fun_guardar.Companion.posActual
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_huerta_digital.*
 
-class huerta_digital : AppCompatActivity(), View.OnClickListener {
-    private var busq: Button? = null
-    private var add: Button? = null
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
+
+/**
+ * A simple [Fragment] subclass.
+ * Use the [agregarCulti.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class agregarCulti : Fragment(R.layout.fragment_agregar_culti) {
+
+    //private var busq: Button? = null
+    //private var add: Button? = null
     private val db = FirebaseFirestore.getInstance()
     var nombCien1:String = ""
     var desc1:String = ""
     var nomb:String = ""
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_huerta_digital)
 
         busq = findViewById(R.id.busquedaButton)
         add = findViewById(R.id.agregarButton)
         add!!.setOnClickListener(this)
         busq!!.setOnClickListener(this)
 
-    }
+    }*/
 
-    override fun onClick(p0: View?) {
+    fun onActivityCreated(p0: View?) {
 
         when(p0!!.id){
             R.id.busquedaButton->{
@@ -89,9 +100,7 @@ class huerta_digital : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
+
     }
+
 }
-
-
-
-

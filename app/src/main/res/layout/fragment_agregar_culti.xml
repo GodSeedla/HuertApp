@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".agregarCulti">
+
+    <Button
+        android:id="@+id/agregarButton"
+        android:layout_width="149dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="198dp"
+        android:layout_marginEnd="231dp"
+        android:layout_marginBottom="461dp"
+        android:background="@drawable/boton_agregar"
+        android:text="@string/agregar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/busquedaButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="253dp"
+        android:layout_marginTop="255dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="428dp"
+        android:text="@string/buscar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/preguntartextView"
+        android:layout_width="186dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="197dp"
+        android:layout_marginTop="199dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="480dp"
+        android:autofillHints=""
+        android:hint="@string/ingresar_cultivo"
+        android:textColorLink="#FD73ECEC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/descripcionTextView"
+        android:layout_width="187dp"
+        android:layout_height="169dp"
+        android:layout_marginStart="197dp"
+        android:layout_marginTop="427dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="135dp"
+        android:hint="@string/descripcion_cultivo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/descripcionBusqTextView2"
+        android:layout_width="97dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="427dp"
+        android:layout_marginEnd="283dp"
+        android:layout_marginBottom="274dp"
+        android:text="@string/descripcioin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreCultivoTextView"
+        android:layout_width="162dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="197dp"
+        android:layout_marginTop="319dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="372dp"
+        android:hint="@string/cultivo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreCientificoTextView"
+        android:layout_width="172dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="197dp"
+        android:layout_marginTop="372dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="324dp"
+        android:hint="@string/nombre_cientifico"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreCienBusqTextView"
+        android:layout_width="125dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="375dp"
+        android:layout_marginEnd="255dp"
+        android:layout_marginBottom="324dp"
+        android:text="@string/nombre_cientifico"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreBusqTextView"
+        android:layout_width="139dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="319dp"
+        android:layout_marginEnd="241dp"
+        android:layout_marginBottom="375dp"
+        android:text="@string/nombre_del_cultivo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

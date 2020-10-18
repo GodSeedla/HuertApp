@@ -3,10 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".huerta_digital2">
+    android:layout_height="match_parent">
 
 
+    <Button
+        android:id="@+id/button_pos21"
+        android:layout_width="119dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="221dp"
+        android:layout_marginEnd="246dp"
+        android:layout_marginBottom="395dp"
+        android:background="#737171"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_pos12"
+        android:layout_width="119dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="251dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="554dp"
+        android:background="#737171"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_22"
@@ -23,34 +49,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_pos21"
-        android:layout_width="119dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="221dp"
-        android:layout_marginEnd="246dp"
-        android:layout_marginBottom="395dp"
-        android:backgroundTint="#737171"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_pos12"
-        android:layout_width="119dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="251dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="554dp"
-        android:backgroundTint="#737171"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/button_pos11"
         android:layout_width="119dp"
         android:layout_height="115dp"
@@ -59,6 +57,20 @@
         android:layout_marginEnd="246dp"
         android:layout_marginBottom="554dp"
         android:background="#737171"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment"
+        android:name="com.example.holamundete.infCultivo"
+        android:layout_width="367dp"
+        android:layout_height="354dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="359dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
