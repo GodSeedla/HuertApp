@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".agregarCulti">
 
+    <TextView
+        android:id="@+id/resultadoBusquedaTextView"
+        android:layout_width="215dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="271dp"
+        android:layout_marginEnd="180dp"
+        android:layout_marginBottom="428dp"
+        android:hint="Resulto?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/agregarButton"
         android:layout_width="149dp"

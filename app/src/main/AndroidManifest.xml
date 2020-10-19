@@ -14,7 +14,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".registro_usuario"></activity>
         <activity android:name=".huerta_digital0" />
-        <activity android:name=".huerta_digital2" />
         <activity android:name=".huerta_digital" />
         <activity android:name=".menu_principal" />
         <activity android:name=".menu_login">

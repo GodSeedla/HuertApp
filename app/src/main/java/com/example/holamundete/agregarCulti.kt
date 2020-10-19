@@ -1,106 +1,79 @@
 package com.example.holamundete
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
-import com.example.holamundete.fun_guardar.Companion.pos11
-import com.example.holamundete.fun_guardar.Companion.pos12
-import com.example.holamundete.fun_guardar.Companion.pos21
-import com.example.holamundete.fun_guardar.Companion.pos22
-import com.example.holamundete.fun_guardar.Companion.posActual
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.activity_huerta_digital.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [agregarCulti.newInstance] factory method to
- * create an instance of this fragment.
- */
 class agregarCulti : Fragment(R.layout.fragment_agregar_culti) {
-
-    //private var busq: Button? = null
-    //private var add: Button? = null
     private val db = FirebaseFirestore.getInstance()
     var nombCien1:String = ""
     var desc1:String = ""
     var nomb:String = ""
 
-    /*override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
-        busq = findViewById(R.id.busquedaButton)
-        add = findViewById(R.id.agregarButton)
-        add!!.setOnClickListener(this)
-        busq!!.setOnClickListener(this)
+        busquedaButton.setOnClickListener{
+            if (preguntartextView.text.toString().isNotEmpty()){
 
-    }*/
+                var textito = preguntartextView.text.toString()
+                nomb = textito
+                if (textito.isNotEmpty()){
+                    while (db.collection("cultivo").document(textito) != null){
+                        db.collection("cultivo").document(textito).get().addOnSuccessListener {
+                            nombreCultivoTextView.text = nomb
 
-    fun onActivityCreated(p0: View?) {
+                            nombreCientificoTextView.text = it.get("Nombre_Cientifico") as String?
+                            nombCien1 = it.get("Nombre_Cientifico") as String
 
-        when(p0!!.id){
-            R.id.busquedaButton->{
-                if (preguntartextView.text.toString().isNotEmpty()){
+                            descripcionTextView.text = it.get("Descripcion") as String?
+                            desc1 = it.get("Descripcion") as String
 
-                    var textito = preguntartextView.text.toString()
-                    nomb = textito
-                    if (textito.isNotEmpty()){
-                        while (db.collection("cultivo").document(textito) != null){
-                            db.collection("cultivo").document(textito).get().addOnSuccessListener {
-                                nombreCultivoTextView.text = nomb
-
-                                nombreCientificoTextView.text = it.get("Nombre_Cientifico") as String?
-                                nombCien1 = it.get("Nombre_Cientifico") as String
-
-                                descripcionTextView.text = it.get("Descripcion") as String?
-                                desc1 = it.get("Descripcion") as String
-
-                                //riegoCultivoTextView.text = it.get("Riego") as String?
-                                //climaCultTextView.text = it.get("Clima") as String?
-                                //tiemCosechaTextView.text = it.get("Tiempo_cosecha") as String?
-                                resultadoBusquedaTextView.text = "Exito"
-                            }
-                            break
+                            //riegoCultivoTextView.text = it.get("Riego") as String?
+                            //climaCultTextView.text = it.get("Clima") as String?
+                            //tiemCosechaTextView.text = it.get("Tiempo_cosecha") as String?
+                            resultadoBusquedaTextView.text = "Exito"
                         }
-                        db.collection("cultivo").document(textito).get().addOnFailureListener {
-                            resultadoBusquedaTextView.text = "No se ha encontrado nada" as String?
-                        }
+                        break
                     }
-                }
-            }
-
-            R.id.agregarButton->{
-                //ifS para guardar los datos
-                if(posActual == "11" && nomb.isNotEmpty()){
-                    pos11.guardarAlgo(nomb,"nomb"+ posActual)
-                    pos11.guardarAlgo(nombCien1, "nombCien"+posActual)
-                    pos11.guardarAlgo(desc1, "desc"+posActual)
-                }
-                if(posActual == "12" && nomb.isNotEmpty()){
-                    pos12.guardarAlgo(nomb,"nomb"+ posActual)
-                    pos12.guardarAlgo(nombCien1, "nombCien"+posActual)
-                    pos12.guardarAlgo(desc1, "desc"+posActual)
-                }
-                if(posActual == "21" && nomb.isNotEmpty()){
-                    pos21.guardarAlgo(nomb,"nomb"+ posActual)
-                    pos21.guardarAlgo(nombCien1, "nombCien"+posActual)
-                    pos21.guardarAlgo(desc1, "desc"+posActual)
-                }
-                if(posActual == "22" && nomb.isNotEmpty()){
-                    pos22.guardarAlgo(nomb,"nomb"+ posActual)
-                    pos22.guardarAlgo(nombCien1, "nombCien"+posActual)
-                    pos22.guardarAlgo(desc1, "desc"+posActual)
+                    db.collection("cultivo").document(textito).get().addOnFailureListener {
+                        resultadoBusquedaTextView.text = "No se ha encontrado nada" as String?
+                    }
                 }
             }
         }
 
-    }
+        agregarButton.setOnClickListener{
+            //ifS para guardar los datos
+            if(fun_guardar.posActual == "11" && nomb.isNotEmpty()){
+                fun_guardar.pos11.guardarAlgo(nomb,"nomb"+ fun_guardar.posActual)
+                fun_guardar.pos11.guardarAlgo(nombCien1, "nombCien"+ fun_guardar.posActual)
+                fun_guardar.pos11.guardarAlgo(desc1, "desc"+ fun_guardar.posActual)
+            }
+            if(fun_guardar.posActual == "12" && nomb.isNotEmpty()){
+                fun_guardar.pos12.guardarAlgo(nomb,"nomb"+ fun_guardar.posActual)
+                fun_guardar.pos12.guardarAlgo(nombCien1, "nombCien"+ fun_guardar.posActual)
+                fun_guardar.pos12.guardarAlgo(desc1, "desc"+ fun_guardar.posActual)
+            }
+            if(fun_guardar.posActual == "21" && nomb.isNotEmpty()){
+                fun_guardar.pos21.guardarAlgo(nomb,"nomb"+ fun_guardar.posActual)
+                fun_guardar.pos21.guardarAlgo(nombCien1, "nombCien"+ fun_guardar.posActual)
+                fun_guardar.pos21.guardarAlgo(desc1, "desc"+ fun_guardar.posActual)
+            }
+            if(fun_guardar.posActual == "22" && nomb.isNotEmpty()){
+                fun_guardar.pos22.guardarAlgo(nomb,"nomb"+ fun_guardar.posActual)
+                fun_guardar.pos22.guardarAlgo(nombCien1, "nombCien"+ fun_guardar.posActual)
+                fun_guardar.pos22.guardarAlgo(desc1, "desc"+ fun_guardar.posActual)
+            }
+        }
 
+    }
 }
