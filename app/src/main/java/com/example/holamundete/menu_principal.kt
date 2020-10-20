@@ -21,6 +21,11 @@ class menu_principal : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_principal)
 
+        searchButton.setOnClickListener {
+            val intent = Intent(this, SearcherActivity::class.java)
+            startActivity(intent)
+        }
+
         info = findViewById(R.id.infoButton)
         info!!.setOnClickListener(this)
 
