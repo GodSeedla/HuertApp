@@ -16,24 +16,30 @@ import kotlinx.android.synthetic.main.activity_menu_principal.*
 
 class menu_principal : AppCompatActivity(), View.OnClickListener {
     private var info: Button? = null
+    private var lupa: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_principal)
 
-        searchButton.setOnClickListener {
-            val intent = Intent(this, SearcherActivity::class.java)
-            startActivity(intent)
-        }
-
         info = findViewById(R.id.infoButton)
         info!!.setOnClickListener(this)
+        lupa = findViewById(R.id.lupaSearchButton)
+        lupa!!.setOnClickListener(this)
+
+
 
     }
 
-
     override fun onClick(p0: View?) {
-            startActivity(Intent(this@menu_principal, huerta_digital0::class.java) )
+        when(p0!!.id) {
+            R.id.infoButton -> {
+                startActivity(Intent(this@menu_principal, huerta_digital0::class.java))
+            }
+            R.id.lupaSearchButton -> {
+                startActivity(Intent(this@menu_principal, busqueda::class.java))
+            }
+        }
 
     }
 }
