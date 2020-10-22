@@ -26,8 +26,11 @@ class registro_usuario : AppCompatActivity() {
         var nombreUsuario = txt_nickname.text.toString()
         var emailUsuario = txt_emailUsuario.text.toString()
         var contraseñaUsuario = txt_contraseñaUsuario.text.toString()
+        //var aleatorio:Int? = null
 
-        var fila:Cursor = BaseDeDatos.rawQuery("select nickname,correo from Usuarios where contraseña=" + contraseñaUsuario,
+
+
+        var fila:Cursor = BaseDeDatos.rawQuery("select nickname, correo from Usuarios where contraseña=" + contraseñaUsuario,
                 null)
             if (fila.moveToNext()){
                 Toast.makeText(this, "El usuario ya existe", Toast.LENGTH_LONG).show()
@@ -39,9 +42,11 @@ class registro_usuario : AppCompatActivity() {
 
                     var registro = ContentValues();
 
+                    //aleatorio++
                     registro.put("contraseña", contraseñaUsuario)
                     registro.put("nickname", nombreUsuario)
                     registro.put("correo", emailUsuario)
+                    //registro.put("rutUsuario", aleatorio)
 
                     BaseDeDatos.insert("Usuarios", null, registro)
                     BaseDeDatos.close()

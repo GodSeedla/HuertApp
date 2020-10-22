@@ -1,16 +1,18 @@
 package com.example.holamundete
 
+import android.R.attr.x
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_menu_login.*
+
 
 class menu_login : AppCompatActivity(), View.OnClickListener {
     private var omitir: Button? = null
@@ -36,6 +38,7 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
 
         registrarse = findViewById(R.id.button_registrarse)
         registrarse!!.setOnClickListener(this)
+
     }
 
     fun Clean() {
@@ -65,8 +68,10 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
                             startActivity(Intent(this@menu_login, menu_principal::class.java))
                             Clean()
                         }*/
+
                     var fila: Cursor = BaseDeDatos.rawQuery("select nickname from Usuarios where contraseña=" + password,
                         null)
+
                     if (fila.moveToNext()){
                         Toast.makeText(this, "Inicio concedido", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this@menu_login, menu_principal::class.java))

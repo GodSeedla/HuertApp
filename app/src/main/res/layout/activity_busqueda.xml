@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="424dp"
-        android:background="#86178783"
+        android:background="#1C2548"
         android:hint="@string/nombre_del_cultivo"
         android:text="Nombre del Cultivo:"
         android:textSize="18sp"

@@ -1,16 +1,11 @@
 package com.example.holamundete
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.preference.PreferenceManager
 import android.view.View
 import android.widget.Button
-import com.example.holamundete.fun_guardar.Companion.pos11
-import com.example.holamundete.fun_guardar.Companion.pos12
-import com.example.holamundete.fun_guardar.Companion.pos21
-import com.example.holamundete.fun_guardar.Companion.pos22
-import kotlinx.android.synthetic.main.activity_menu_login.*
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_menu_principal.*
 
 
@@ -27,10 +22,10 @@ class menu_principal : AppCompatActivity(), View.OnClickListener {
         lupa = findViewById(R.id.lupaSearchButton)
         lupa!!.setOnClickListener(this)
 
-
-
+        perfilButton.setOnClickListener(){
+            irAPerfil()
+        }
     }
-
     override fun onClick(p0: View?) {
         when(p0!!.id) {
             R.id.infoButton -> {
@@ -39,7 +34,19 @@ class menu_principal : AppCompatActivity(), View.OnClickListener {
             R.id.lupaSearchButton -> {
                 startActivity(Intent(this@menu_principal, busqueda::class.java))
             }
+            /*R.id.perfilButton -> {
+                Toast.makeText(this, "oliwi", Toast.LENGTH_SHORT).show()
+                if (menu_login().inicio == true){
+                    startActivity(Intent(this@menu_principal, perfilUsuario::class.java))
+                }else{
+                    Toast.makeText(this, "Debes ingresar una sesion primero", Toast.LENGTH_LONG).show()
+                }
+            }*/
         }
 
+    }
+
+    fun irAPerfil(){
+        startActivity(Intent(this@menu_principal, perfilUsuario::class.java))
     }
 }
