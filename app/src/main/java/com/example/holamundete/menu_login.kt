@@ -1,6 +1,5 @@
 package com.example.holamundete
 
-import android.R.attr.x
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -17,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_menu_login.*
 class menu_login : AppCompatActivity(), View.OnClickListener {
     private var omitir: Button? = null
     private var iniciarSesion: Button? = null
-    private var registrarse:Button? = null
+    private var registrarse: Button? = null
     private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +41,7 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
     }
 
     fun Clean() {
-        userText.text = null
+        correoText.text = null
         PasswordText.text = null
     }
 
@@ -54,39 +53,44 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
                 Clean()
             }
             R.id.button_inicioSesion -> {
-                var admin = AdminSQLiteOpenHelper(this,"administracion", null, 1);
-                var BaseDeDatos: SQLiteDatabase = admin.writableDatabase;
+                //var admin = AdminSQLiteOpenHelper(this, "administracion", null, 1);
+                //var BaseDeDatos: SQLiteDatabase = admin.writableDatabase;
 
-                var user = userText.text.toString()
+                var email = correoText.text.toString()
                 var password = PasswordText.text.toString()
                 val length: Int
 
-                if ((user.isNotEmpty() && password.isNotEmpty())) {
-                    /*db.collection("usuario").document(user).get().addOnSuccessListener {
+                if ((email.isNotEmpty() && password.isNotEmpty())) {
 
+                    db.collection("usuario").document(email).get().addOnSuccessListener {
                         if (password == it.get("contraseña")) {
                             startActivity(Intent(this@menu_login, menu_principal::class.java))
+                            Toast.makeText(this, "Inicio concedido", Toast.LENGTH_SHORT).show()
                             Clean()
-                        }*/
 
-                    var fila: Cursor = BaseDeDatos.rawQuery("select nickname from Usuarios where contraseña=" + password,
-                        null)
 
-                    if (fila.moveToNext()){
-                        Toast.makeText(this, "Inicio concedido", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this@menu_login, menu_principal::class.java))
-                        Clean()
+                        /*var fila: Cursor = BaseDeDatos.rawQuery(
+                            "select nickname from Usuarios where contraseña=" + password, null)
+
+                        if (fila.moveToNext()) {
+                            Toast.makeText(this, "Inicio concedido", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this@menu_login, menu_principal::class.java))
+                            Clean()
+                        } else {
+                            Toast.makeText(this, "Nombre de usuario o Contraseña incorrecta", Toast.LENGTH_LONG).show()
+                            Clean()
+                        }
+                        fila.close()
+                        BaseDeDatos.close()*/
+
                     }else{
                         Toast.makeText(this, "Nombre de usuario o Contraseña incorrecta", Toast.LENGTH_LONG).show()
-                        Clean()
                     }
-                    fila.close()
-                    BaseDeDatos.close()
-                }else{
+                }
+            }else{
                     Toast.makeText(this, "Ingrese una cuenta de usuario", Toast.LENGTH_LONG).show()
                 }
             }
-
             R.id.button_registrarse -> {
                 startActivity(Intent(this@menu_login, registro_usuario::class.java))
                 Clean()
