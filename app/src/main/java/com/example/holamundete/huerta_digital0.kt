@@ -1,6 +1,9 @@
 package com.example.holamundete
 
+import android.content.ContentValues
 import android.content.Intent
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,32 +18,55 @@ class huerta_digital0 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_huerta_digital0)
-        posActual = " "
+
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment, bienvenida_huerta())
             commit()
         }
 
+        //variables de SQLite para abrir la base de datos
+        var admin = AdminSQLiteOpenHelper(this,"administracion", null, 1)
+        var BaseDeDatos: SQLiteDatabase = admin.writableDatabase
+
+        posActual = "11"
+
+        //variables de query para ver si hay datos por cada posicion
+        var fila: Cursor = BaseDeDatos.rawQuery("select nombre from Cultivos where IDculti =" + posActual, null)
+
         //if que cambian el color de la huerta si hay algo dentro de ella a verde
-        if (pos11.getAlgo("nomb11") != " "){
+        if (fila.moveToFirst()){
             button_pos11.setBackgroundColor(Color.GREEN)
         }else{
             button_pos11.setBackgroundColor(Color.GRAY)
         }
+        //fila.close()
 
-        if (pos12.getAlgo("nomb12") != " "){
+        posActual = "12"
+
+        fila = BaseDeDatos.rawQuery("select nombre from Cultivos where IDculti =" + posActual, null)
+
+        if (fila.moveToFirst()){
             button_pos12.setBackgroundColor(Color.GREEN)
         }else{
             button_pos12.setBackgroundColor(Color.GRAY)
         }
+        //fila.close()
 
-        if (pos21.getAlgo("nomb21") != " "){
+        posActual = "21"
+
+        fila = BaseDeDatos.rawQuery("select nombre from Cultivos where IDculti =" + posActual, null)
+
+        if (fila.moveToFirst()){
             button_pos21.setBackgroundColor(Color.GREEN)
         }else{
             button_pos21.setBackgroundColor(Color.GRAY)
         }
 
-        if (pos22.getAlgo("nomb22") != " "){
+        posActual = "22"
+
+        fila = BaseDeDatos.rawQuery("select nombre from Cultivos where IDculti =" + posActual, null)
+
+        if (fila.moveToFirst()){
             button_22.setBackgroundColor(Color.GREEN)
         }else{
             button_22.setBackgroundColor(Color.GRAY)
@@ -50,7 +76,8 @@ class huerta_digital0 : AppCompatActivity() {
         //de lo contrario nos lleva a agregar uno
         button_pos11.setOnClickListener{
             posActual = "11"
-            if (pos11.getAlgo("nomb11") != " "){
+            fila = BaseDeDatos.rawQuery("select nombre from Cultivos where IDculti =" + posActual, null)
+            if (fila.moveToFirst()){
                 supportFragmentManager.beginTransaction().apply {
                     replace(R.id.fragment, infCultivo())
                     commit()
@@ -65,7 +92,8 @@ class huerta_digital0 : AppCompatActivity() {
 
         button_pos12.setOnClickListener{
             posActual = "12"
-            if (pos12.getAlgo("nomb12") != " "){
+            fila = BaseDeDatos.rawQuery("select nombre from Cultivos where IDculti =" + posActual, null)
+            if (fila.moveToFirst()){
                 supportFragmentManager.beginTransaction().apply {
                     replace(R.id.fragment, infCultivo())
                     commit()
@@ -80,7 +108,8 @@ class huerta_digital0 : AppCompatActivity() {
 
         button_pos21.setOnClickListener{
             posActual = "21"
-            if (pos21.getAlgo("nomb21") != " "){
+            fila = BaseDeDatos.rawQuery("select nombre from Cultivos where IDculti =" + posActual, null)
+            if (fila.moveToFirst()){
                 supportFragmentManager.beginTransaction().apply {
                     replace(R.id.fragment, infCultivo())
                     commit()
@@ -95,7 +124,8 @@ class huerta_digital0 : AppCompatActivity() {
 
         button_22.setOnClickListener{
             posActual = "22"
-            if (pos22.getAlgo("22") != " "){
+            fila = BaseDeDatos.rawQuery("select nombre from Cultivos where IDculti =" + posActual, null)
+            if (fila.moveToFirst()){
                 supportFragmentManager.beginTransaction().apply {
                     replace(R.id.fragment, infCultivo())
                     commit()
@@ -107,5 +137,7 @@ class huerta_digital0 : AppCompatActivity() {
                 }
             }
         }
+        /*fila.close()
+        BaseDeDatos.close()*/
     }
 }

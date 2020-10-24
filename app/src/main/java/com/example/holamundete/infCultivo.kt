@@ -1,11 +1,14 @@
 package com.example.holamundete
 
 import android.content.Intent
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.holamundete.fun_guardar.Companion.pos11
 import com.example.holamundete.fun_guardar.Companion.pos12
 import com.example.holamundete.fun_guardar.Companion.pos21
@@ -28,49 +31,26 @@ class infCultivo : Fragment(R.layout.fragment_inf_cultivo) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        //dependiendo de la posicion se muestra por pantalla las descripciones del cultivo
-        if (posActual == "11"){
-            nombre_cultivo.setText(pos11.getAlgo("nomb11"))
-            nombre_cientifico.setText(pos11.getAlgo("nombCien11"))
-            descripcion.setText(pos11.getAlgo("desc11"))
-        }
+        //conexto del fragment
+        val appContext = context!!.applicationContext
 
-        if (posActual == "12"){
-            nombre_cultivo.setText(pos12.getAlgo("nomb12"))
-            nombre_cientifico.setText(pos12.getAlgo("nombCien12"))
-            descripcion.setText(pos12.getAlgo("desc12"))
-        }
+        //variables de SQLite para abrir la base de datos
+        var admin = AdminSQLiteOpenHelper(appContext,"administracion", null, 1)
+        var BaseDeDatos: SQLiteDatabase = admin.writableDatabase
 
-        if (fun_guardar.posActual == "21"){
-            nombre_cultivo.setText(pos21.getAlgo("nomb21"))
-            nombre_cientifico.setText(pos21.getAlgo("nombCien21"))
-            descripcion.setText(pos21.getAlgo("desc21"))
-        }
+        //variable de query
+        var fila: Cursor = BaseDeDatos.rawQuery("select nombre, nomCien, descri from Cultivos where IDculti =" + posActual, null)
 
-        if (posActual == "22"){
-            nombre_cultivo.setText(pos22.getAlgo("nomb"+ posActual))
-            nombre_cientifico.setText(pos22.getAlgo("nombCien"+ posActual))
-            descripcion.setText(pos22.getAlgo("desc"+ posActual))
+        if (fila.moveToNext()){
+            nombre_cultivo.setText(fila.getString(0))
+            nombre_cientifico.setText((fila.getString(1)))
+            descripcion.setText((fila.getString(2)))
         }
 
         eliminar_huerta.setOnClickListener{
-            if(posActual == "11"){
-                pos11.borrar("nomb" + posActual)
-                pos11.borrar("nombCien" + posActual)
-                pos11.borrar("desc" + posActual)
-            }else if (posActual == "12"){
-                pos12.borrar("nomb" + posActual)
-                pos12.borrar("nombCien" + posActual)
-                pos12.borrar("desc" + posActual)
-            }else if (posActual == "21"){
-                pos21.borrar("nomb" + posActual)
-                pos21.borrar("nombCien" + posActual)
-                pos21.borrar("desc" + posActual)
-            }else if (posActual == "22"){
-                pos22.borrar("nomb" + posActual)
-                pos22.borrar("nombCien" + posActual)
-                pos22.borrar("desc" + posActual)
-            }
+            BaseDeDatos.delete("Cultivos", "IDculti=" + posActual, null)
         }
+        /*fila.close()
+        BaseDeDatos.close()*/
     }
 }

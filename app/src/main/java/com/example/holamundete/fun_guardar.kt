@@ -11,7 +11,6 @@ class fun_guardar : Application(){
         lateinit var pos21:guardar
         lateinit var pos22:guardar
         lateinit var posActual:String
-
     }
 
     override fun onCreate() {

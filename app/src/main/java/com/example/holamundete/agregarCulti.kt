@@ -1,10 +1,16 @@
 package com.example.holamundete
 
+import android.content.ContentValues
+import android.content.Intent
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.holamundete.fun_guardar.Companion.posActual
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
@@ -17,9 +23,20 @@ class agregarCulti : Fragment(R.layout.fragment_agregar_culti) {
     var nombCien1:String = ""
     var desc1:String = ""
     var nomb:String = ""
+    var posActualNum = posActual.toInt()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        //conexto del fragment
+        val appContext = context!!.applicationContext
+
+        //variables de SQLite para abrir la base de datos
+        var admin = AdminSQLiteOpenHelper(appContext,"administracion", null, 1)
+        var BaseDeDatos: SQLiteDatabase = admin.writableDatabase
+
+        //variable "registro" guarda los datos a almacenar en la base de datos
+        var registro = ContentValues()
 
         busquedaButton.setOnClickListener{
             if (preguntartextView.text.toString().isNotEmpty()){
@@ -52,27 +69,17 @@ class agregarCulti : Fragment(R.layout.fragment_agregar_culti) {
         }
 
         agregarButton.setOnClickListener{
-            //ifS para guardar los datos
-            if(fun_guardar.posActual == "11" && nomb.isNotEmpty()){
-                fun_guardar.pos11.guardarAlgo(nomb,"nomb"+ fun_guardar.posActual)
-                fun_guardar.pos11.guardarAlgo(nombCien1, "nombCien"+ fun_guardar.posActual)
-                fun_guardar.pos11.guardarAlgo(desc1, "desc"+ fun_guardar.posActual)
-            }
-            if(fun_guardar.posActual == "12" && nomb.isNotEmpty()){
-                fun_guardar.pos12.guardarAlgo(nomb,"nomb"+ fun_guardar.posActual)
-                fun_guardar.pos12.guardarAlgo(nombCien1, "nombCien"+ fun_guardar.posActual)
-                fun_guardar.pos12.guardarAlgo(desc1, "desc"+ fun_guardar.posActual)
-            }
-            if(fun_guardar.posActual == "21" && nomb.isNotEmpty()){
-                fun_guardar.pos21.guardarAlgo(nomb,"nomb"+ fun_guardar.posActual)
-                fun_guardar.pos21.guardarAlgo(nombCien1, "nombCien"+ fun_guardar.posActual)
-                fun_guardar.pos21.guardarAlgo(desc1, "desc"+ fun_guardar.posActual)
-            }
-            if(fun_guardar.posActual == "22" && nomb.isNotEmpty()){
-                fun_guardar.pos22.guardarAlgo(nomb,"nomb"+ fun_guardar.posActual)
-                fun_guardar.pos22.guardarAlgo(nombCien1, "nombCien"+ fun_guardar.posActual)
-                fun_guardar.pos22.guardarAlgo(desc1, "desc"+ fun_guardar.posActual)
-            }
+
+            //guardamos los datos en "registro" para luego almacenarlos en su respectiva tabla
+            registro.put("IDculti", posActualNum)
+            registro.put("nombre", nomb)
+            registro.put("nomCien", nombCien1)
+            registro.put("descri", desc1)
+            BaseDeDatos.insert("Cultivos", null, registro);
+
+            Toast.makeText(appContext, "Datos guardados correctamente", Toast.LENGTH_SHORT).show()
+
+            BaseDeDatos.close()
         }
 
     }
