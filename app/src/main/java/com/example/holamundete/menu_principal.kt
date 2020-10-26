@@ -32,7 +32,7 @@ class menu_principal : AppCompatActivity(), View.OnClickListener {
                 startActivity(Intent(this@menu_principal, huerta_digital0::class.java))
             }
             R.id.lupaSearchButton -> {
-                startActivity(Intent(this@menu_principal, busqueda::class.java))
+                startActivity(Intent(this@menu_principal, buscador_digital::class.java))
             }
             /*R.id.perfilButton -> {
                 Toast.makeText(this, "oliwi", Toast.LENGTH_SHORT).show()

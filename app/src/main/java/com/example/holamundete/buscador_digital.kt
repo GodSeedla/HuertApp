@@ -11,9 +11,9 @@ import com.example.holamundete.fun_guardar.Companion.pos21
 import com.example.holamundete.fun_guardar.Companion.pos22
 import com.example.holamundete.fun_guardar.Companion.posActual
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_huerta_digital.*
+import kotlinx.android.synthetic.main.activity_buscador_digital.*
 
-class huerta_digital : AppCompatActivity(), View.OnClickListener {
+class buscador_digital : AppCompatActivity(), View.OnClickListener {
     private var busq: Button? = null
     private var add: Button? = null
     private val db = FirebaseFirestore.getInstance()
@@ -23,7 +23,7 @@ class huerta_digital : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_huerta_digital)
+        setContentView(R.layout.activity_buscador_digital)
 
         busq = findViewById(R.id.busquedaButton)
         add = findViewById(R.id.agregarButton)

@@ -15,7 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
-import kotlinx.android.synthetic.main.activity_huerta_digital.*
+import kotlinx.android.synthetic.main.activity_buscador_digital.*
 
 
 class agregarCulti : Fragment(R.layout.fragment_agregar_culti) {
