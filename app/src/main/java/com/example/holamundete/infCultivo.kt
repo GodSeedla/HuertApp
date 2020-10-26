@@ -16,16 +16,6 @@ import com.example.holamundete.fun_guardar.Companion.pos22
 import com.example.holamundete.fun_guardar.Companion.posActual
 import kotlinx.android.synthetic.main.fragment_inf_cultivo.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [infCultivo.newInstance] factory method to
- * create an instance of this fragment.
- */
 class infCultivo : Fragment(R.layout.fragment_inf_cultivo) {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -41,6 +31,7 @@ class infCultivo : Fragment(R.layout.fragment_inf_cultivo) {
         //variable de query
         var fila: Cursor = BaseDeDatos.rawQuery("select nombre, nomCien, descri from Cultivos where IDculti =" + posActual, null)
 
+        //
         if (fila.moveToNext()){
             nombre_cultivo.setText(fila.getString(0))
             nombre_cientifico.setText((fila.getString(1)))

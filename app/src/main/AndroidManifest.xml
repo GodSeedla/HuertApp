@@ -16,7 +16,7 @@
         <activity android:name=".perfilUsuario" />
         <activity android:name=".registro_usuario" />
         <activity android:name=".huerta_digital0" />
-        <activity android:name=".huerta_digital" />
+        <activity android:name=".buscador_digital" />
         <activity android:name=".menu_principal" />
         <activity android:name=".menu_login">
             <intent-filter>
