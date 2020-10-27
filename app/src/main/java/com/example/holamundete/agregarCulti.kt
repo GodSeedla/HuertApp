@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.activity_buscador_digital.*
+import kotlinx.android.synthetic.main.activity_perfil_usuario.*
 
 
 class agregarCulti : Fragment(R.layout.fragment_agregar_culti) {
@@ -24,6 +25,7 @@ class agregarCulti : Fragment(R.layout.fragment_agregar_culti) {
     var desc1:String = ""
     var nomb:String = ""
     var posActualNum = posActual.toInt()
+    var cultivos:String = ""
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -69,17 +71,47 @@ class agregarCulti : Fragment(R.layout.fragment_agregar_culti) {
         }
 
         agregarButton.setOnClickListener{
+            if (menu_login.correo == "estoy vacio"){
+                //guardamos los datos en "registro" para luego almacenarlos en su respectiva tabla
+                registro.put("IDculti", posActualNum)
+                registro.put("nombre", nomb)
+                registro.put("nomCien", nombCien1)
+                registro.put("descri", desc1)
+                BaseDeDatos.insert("Cultivos", null, registro);
 
-            //guardamos los datos en "registro" para luego almacenarlos en su respectiva tabla
-            registro.put("IDculti", posActualNum)
-            registro.put("nombre", nomb)
-            registro.put("nomCien", nombCien1)
-            registro.put("descri", desc1)
-            BaseDeDatos.insert("Cultivos", null, registro);
+                Toast.makeText(appContext, "Datos guardados correctamente", Toast.LENGTH_SHORT).show()
 
-            Toast.makeText(appContext, "Datos guardados correctamente", Toast.LENGTH_SHORT).show()
+                BaseDeDatos.close()
+            }else{
+                val docRef = db.collection("usuario")
+                docRef.document(menu_login.correo).get().addOnSuccessListener {
+                    cultivos = it.get("numCultivos") as String
+                    if (cultivos == "0"){
+                        docRef.document(menu_login.correo).update("numCultivos", "1")
+                        cultivos = "1"
+                    }else if (cultivos == "1"){
+                        docRef.document(menu_login.correo).update("numCultivos", "2")
+                        cultivos = "2"
+                    }else if (cultivos == "2"){
+                        docRef.document(menu_login.correo).update("numCultivos", "3")
+                        cultivos = "3"
+                    }else{
+                        docRef.document(menu_login.correo).update("numCultivos", "4")
+                        cultivos = "4"
+                    }
+                }
 
-            BaseDeDatos.close()
+                registro.put("IDculti", posActualNum)
+                registro.put("nombre", nomb)
+                registro.put("nomCien", nombCien1)
+                registro.put("descri", desc1)
+                BaseDeDatos.insert("Cultivos", null, registro);
+
+                Toast.makeText(appContext, "Datos guardados correctamente", Toast.LENGTH_SHORT).show()
+
+                BaseDeDatos.close()
+            }
+
         }
 
     }

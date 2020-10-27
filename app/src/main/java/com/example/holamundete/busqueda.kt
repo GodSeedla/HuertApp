@@ -9,10 +9,17 @@ class busqueda : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_busqueda)
 
-        lupaCultivo.setOnSearchClickListener {
+        /*lupaCultivo.setOnSearchClickListener {
             println("Ola don pepitp")
             nombreCultivoBD.setText("Oliwi")
+        }*/
+
+        lupaCultivo.setOnCloseListener{
+            println("Ola don pepitp")
+            nombreCultivoBD.setText("Oliwi")
+            true
         }
+
 
     }
 

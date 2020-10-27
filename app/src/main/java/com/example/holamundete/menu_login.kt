@@ -19,6 +19,9 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
     private var registrarse: Button? = null
     private val db = FirebaseFirestore.getInstance()
 
+    var email = ""
+    var password = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_login)
@@ -50,14 +53,15 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
         when (p0!!.id) {
             R.id.button_omitirInicioSesion -> {
                 startActivity(Intent(this@menu_login, menu_principal::class.java))
+                correo = "estoy vacio"
                 Clean()
             }
             R.id.button_inicioSesion -> {
                 //var admin = AdminSQLiteOpenHelper(this, "administracion", null, 1);
                 //var BaseDeDatos: SQLiteDatabase = admin.writableDatabase;
 
-                var email = correoText.text.toString()
-                var password = PasswordText.text.toString()
+                email = correoText.text.toString()
+                password = PasswordText.text.toString()
                 val length: Int
 
                 if ((email.isNotEmpty() && password.isNotEmpty())) {
@@ -66,7 +70,8 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
                         if (password == it.get("contraseña")) {
                             startActivity(Intent(this@menu_login, menu_principal::class.java))
                             Toast.makeText(this, "Inicio concedido", Toast.LENGTH_SHORT).show()
-                            Clean()
+                            correo = email
+                            //Clean()
 
 
                         /*var fila: Cursor = BaseDeDatos.rawQuery(
@@ -96,5 +101,9 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
                 Clean()
             }
         }
+    }
+
+    companion object{
+        lateinit var correo:String
     }
 }

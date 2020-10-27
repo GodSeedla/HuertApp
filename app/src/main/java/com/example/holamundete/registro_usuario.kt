@@ -16,6 +16,7 @@ class registro_usuario : AppCompatActivity(), View.OnClickListener {
     var nombreUsuario:String = ""
     var emailUsuario:String = ""
     var passwordUser:String = ""
+    var cantidadCultivos:String = "0"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +45,8 @@ class registro_usuario : AppCompatActivity(), View.OnClickListener {
                             Toast.makeText(this, "El usuario ya existe", Toast.LENGTH_LONG).show()
                         }else{
                             docRef.set(
-                                hashMapOf("nickname" to nombreUsuario, "contraseña" to passwordUser))
+                                hashMapOf("nickname" to nombreUsuario, "contraseña" to passwordUser, "numCultivos" to cantidadCultivos))
+
 
                             Toast.makeText(this, "Registro de usuario exitoso", Toast.LENGTH_LONG).show()
                             startActivity(Intent(this@registro_usuario, menu_login::class.java))
