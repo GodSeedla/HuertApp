@@ -7,10 +7,6 @@ import android.database.sqlite.SQLiteDatabase
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.holamundete.fun_guardar.Companion.pos11
-import com.example.holamundete.fun_guardar.Companion.pos12
-import com.example.holamundete.fun_guardar.Companion.pos21
-import com.example.holamundete.fun_guardar.Companion.pos22
 import com.example.holamundete.fun_guardar.Companion.posActual
 import kotlinx.android.synthetic.main.activity_huerta_digital0.*
 

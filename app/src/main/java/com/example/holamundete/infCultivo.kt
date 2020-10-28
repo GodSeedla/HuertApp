@@ -9,10 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.holamundete.fun_guardar.Companion.pos11
-import com.example.holamundete.fun_guardar.Companion.pos12
-import com.example.holamundete.fun_guardar.Companion.pos21
-import com.example.holamundete.fun_guardar.Companion.pos22
 import com.example.holamundete.fun_guardar.Companion.posActual
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_inf_cultivo.*
@@ -25,7 +21,7 @@ class infCultivo : Fragment(R.layout.fragment_inf_cultivo) {
         super.onActivityCreated(savedInstanceState)
 
         //conexto del fragment
-        val appContext = context!!.applicationContext
+        val appContext = requireContext().applicationContext
 
         //variables de SQLite para abrir la base de datos
         var admin = AdminSQLiteOpenHelper(appContext,"administracion", null, 1)
