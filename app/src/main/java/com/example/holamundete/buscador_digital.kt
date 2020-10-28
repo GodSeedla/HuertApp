@@ -22,8 +22,6 @@ class buscador_digital : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_buscador_digital)
 
         busq = findViewById(R.id.busquedaButton)
-        add = findViewById(R.id.agregarButton)
-        add!!.setOnClickListener(this)
         busq!!.setOnClickListener(this)
 
     }
