@@ -1,6 +1,8 @@
 package com.example.holamundete
 
+import android.content.ContentValues
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -8,6 +10,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.Random
 import kotlinx.android.synthetic.main.activity_registro_usuario.*
 
 class registro_usuario : AppCompatActivity(), View.OnClickListener {
@@ -17,6 +20,8 @@ class registro_usuario : AppCompatActivity(), View.OnClickListener {
     var emailUsuario:String = ""
     var passwordUser:String = ""
     var cantidadCultivos:String = "0"
+    var nAleatorio = Random()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,10 +48,23 @@ class registro_usuario : AppCompatActivity(), View.OnClickListener {
                     docRef.get().addOnSuccessListener { document -> //Entramos a la Cloud Firestore y verificamos si existe el usuario
                         if (document.exists()){
                             Toast.makeText(this, "El usuario ya existe", Toast.LENGTH_LONG).show()
-                        }else{
-                            docRef.set(
-                                hashMapOf("nickname" to nombreUsuario, "contraseña" to passwordUser, "numCultivos" to cantidadCultivos))
 
+                        }else{
+                            var idAleatorio = nAleatorio.nextInt(999) + 1
+                            //creamos una id aleatoria para más tarde buscar al usuario dentro de la app
+
+                            docRef.set(
+                                hashMapOf("id" to idAleatorio, "nickname" to nombreUsuario, /*"contraseña" to passwordUser,*/
+                                    "numCultivos" to cantidadCultivos))
+
+                            var admin = AdminSQLiteOpenHelper(this,"administracion", null, 1);
+                            var BaseDeDatos:SQLiteDatabase = admin.writableDatabase;
+
+                            var registro = ContentValues();
+                            registro.put("contraseña", passwordUser)
+                            registro.put("id", idAleatorio)
+                            BaseDeDatos.insert("Usuarios", null, registro)
+                            BaseDeDatos.close()
 
                             Toast.makeText(this, "Registro de usuario exitoso", Toast.LENGTH_LONG).show()
                             startActivity(Intent(this@registro_usuario, menu_login::class.java))
@@ -95,7 +113,6 @@ class registro_usuario : AppCompatActivity(), View.OnClickListener {
 
                     var registro = ContentValues();
 
-                    //aleatorio++
                     registro.put("contraseña", contraseñaUsuario)
                     registro.put("nickname", nombreUsuario)
                     registro.put("correo", emailUsuario)

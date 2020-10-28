@@ -21,6 +21,7 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
 
     var email = ""
     var password = ""
+    var buscarId:Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,45 +58,37 @@ class menu_login : AppCompatActivity(), View.OnClickListener {
                 Clean()
             }
             R.id.button_inicioSesion -> {
-                //var admin = AdminSQLiteOpenHelper(this, "administracion", null, 1);
-                //var BaseDeDatos: SQLiteDatabase = admin.writableDatabase;
+                var admin = AdminSQLiteOpenHelper(this, "administracion", null, 1);
+                var BaseDeDatos: SQLiteDatabase = admin.writableDatabase;
 
                 email = correoText.text.toString()
                 password = PasswordText.text.toString()
-                val length: Int
 
                 if ((email.isNotEmpty() && password.isNotEmpty())) {
 
                     db.collection("usuario").document(email).get().addOnSuccessListener {
-                        if (password == it.get("contraseña")) {
+                        buscarId = it.get("id") as Long?
+
+                        var fila: Cursor = BaseDeDatos.rawQuery(
+                            "select contraseña from Usuarios where id=" + buscarId, null)
+
+                        if (fila.moveToNext()) {
                             startActivity(Intent(this@menu_login, menu_principal::class.java))
                             Toast.makeText(this, "Inicio concedido", Toast.LENGTH_SHORT).show()
                             correo = email
                             //Clean()
-
-
-                        /*var fila: Cursor = BaseDeDatos.rawQuery(
-                            "select nickname from Usuarios where contraseña=" + password, null)
-
-                        if (fila.moveToNext()) {
-                            Toast.makeText(this, "Inicio concedido", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this@menu_login, menu_principal::class.java))
-                            Clean()
                         } else {
                             Toast.makeText(this, "Nombre de usuario o Contraseña incorrecta", Toast.LENGTH_LONG).show()
                             Clean()
                         }
                         fila.close()
-                        BaseDeDatos.close()*/
-
-                    }else{
-                        Toast.makeText(this, "Nombre de usuario o Contraseña incorrecta", Toast.LENGTH_LONG).show()
+                        BaseDeDatos.close()
                     }
-                }
-            }else{
+                }else{
                     Toast.makeText(this, "Ingrese una cuenta de usuario", Toast.LENGTH_LONG).show()
                 }
             }
+
             R.id.button_registrarse -> {
                 startActivity(Intent(this@menu_login, registro_usuario::class.java))
                 Clean()
