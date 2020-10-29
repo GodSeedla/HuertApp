@@ -31,6 +31,7 @@ class agregarCulti : Fragment(R.layout.fragment_agregar_culti) {
     var desc1:String = ""
     var nomb:String = ""
     var posActualNum = posActual.toInt()
+    var cantCultivo:Long? = 0
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -83,6 +84,13 @@ class agregarCulti : Fragment(R.layout.fragment_agregar_culti) {
                 registro.put("nomCien", nombCien1)
                 registro.put("descri", desc1)
                 BaseDeDatos.insert("Cultivos", null, registro);
+
+                var docRef = db.collection("usuario")
+                docRef.document(menu_login.correo).get().addOnSuccessListener {
+                    cantCultivo = it.get("numCultivos") as Long?
+                    var sumarUno = cantCultivo?.plus(1)
+                    docRef.document(menu_login.correo).update("numCultivos", sumarUno)
+                }
 
                 Toast.makeText(appContext, "Datos guardados correctamente", Toast.LENGTH_SHORT).show()
 

@@ -19,7 +19,7 @@ class registro_usuario : AppCompatActivity(), View.OnClickListener {
     var nombreUsuario:String = ""
     var emailUsuario:String = ""
     var passwordUser:String = ""
-    var cantidadCultivos:String = "0"
+    var cantidadCultivos:Long? = null
     var nAleatorio = Random()
 
 

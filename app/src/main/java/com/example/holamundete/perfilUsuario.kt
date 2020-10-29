@@ -25,7 +25,7 @@ class perfilUsuario : AppCompatActivity() {
         println(llamarUsuario)
         db.collection("usuario").document(llamarUsuario).get().addOnSuccessListener {
             txt_nombrePerfilUsuario.text = it.get("nickname") as String?
-            edit_numCultivos.text = it.get("numCultivos") as String?
+            edit_numCultivos.text = (it.get("numCultivos") as Long?).toString()
         }
 
         if(menu_login.correo == "estoy vacio"){

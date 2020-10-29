@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_inf_cultivo.*
 
 class infCultivo : Fragment(R.layout.fragment_inf_cultivo) {
     private val db = FirebaseFirestore.getInstance()
-    var eliminarCultivo:String = ""
+    var eliminarCultivo:Long? = null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -44,20 +44,9 @@ class infCultivo : Fragment(R.layout.fragment_inf_cultivo) {
             var docRef = db.collection("usuario")
 
             docRef.document(menu_login.correo).get().addOnSuccessListener {
-                eliminarCultivo = it.get("numCultivos") as String
-                if (eliminarCultivo == "1"){
-                    docRef.document(menu_login.correo).update("numCultivos", "0")
-                    //agregarCulti().cultivos = "0"
-                }else if (eliminarCultivo == "2"){
-                    docRef.document(menu_login.correo).update("numCultivos", "1")
-                    //agregarCulti().cultivos = "1"
-                }else if (eliminarCultivo == "3"){
-                    docRef.document(menu_login.correo).update("numCultivos", "2")
-                    //agregarCulti().cultivos = "2"
-                }else if (eliminarCultivo == "4"){
-                    docRef.document(menu_login.correo).update("numCultivos", "3")
-                    //agregarCulti().cultivos = "3"
-                }else{}
+                eliminarCultivo = it.get("numCultivos") as Long?
+                var restarUno = eliminarCultivo?.minus(1)
+                docRef.document(menu_login.correo).update("numCultivos", eliminarCultivo?.minus(1))
             }
 
         }
