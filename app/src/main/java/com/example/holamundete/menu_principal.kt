@@ -34,14 +34,6 @@ class menu_principal : AppCompatActivity(), View.OnClickListener {
             R.id.lupaSearchButton -> {
                 startActivity(Intent(this@menu_principal, buscador_digital::class.java))
             }
-            /*R.id.perfilButton -> {
-                Toast.makeText(this, "oliwi", Toast.LENGTH_SHORT).show()
-                if (menu_login().inicio == true){
-                    startActivity(Intent(this@menu_principal, perfilUsuario::class.java))
-                }else{
-                    Toast.makeText(this, "Debes ingresar una sesion primero", Toast.LENGTH_LONG).show()
-                }
-            }*/
         }
 
     }
