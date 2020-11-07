@@ -21,6 +21,7 @@ class registro_usuario : AppCompatActivity(), View.OnClickListener {
     var passwordUser:String = ""
     var cantidadCultivos:Long? = null
     var nAleatorio = Random()
+    var arrayamigos = arrayListOf<String>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +40,7 @@ class registro_usuario : AppCompatActivity(), View.OnClickListener {
                  emailUsuario = txt_emailUsuario.text.toString()
                  passwordUser = txt_contraseñaUsuario.text.toString()
 
+
                 if (nombreUsuario.isNotEmpty() && emailUsuario.isNotEmpty() && passwordUser.isNotEmpty()){
                     //Las siguientes lineas de código tienen la funcion de entrar a la BD y verificar si el usuario ya existe o no
 
@@ -55,7 +57,7 @@ class registro_usuario : AppCompatActivity(), View.OnClickListener {
 
                             docRef.set(
                                 hashMapOf("id" to idAleatorio, "nickname" to nombreUsuario, /*"contraseña" to passwordUser,*/
-                                    "numCultivos" to cantidadCultivos))
+                                    "numCultivos" to cantidadCultivos, "Amigos" to arrayamigos))
 
                             var admin = AdminSQLiteOpenHelper(this,"administracion", null, 1);
                             var BaseDeDatos:SQLiteDatabase = admin.writableDatabase;

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_menu_principal.*
 
@@ -12,6 +11,8 @@ import kotlinx.android.synthetic.main.activity_menu_principal.*
 class menu_principal : AppCompatActivity(), View.OnClickListener {
     private var info: Button? = null
     private var lupa: Button? = null
+    private var amigo: Button? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +22,9 @@ class menu_principal : AppCompatActivity(), View.OnClickListener {
         info!!.setOnClickListener(this)
         lupa = findViewById(R.id.lupaSearchButton)
         lupa!!.setOnClickListener(this)
+        amigo = findViewById(R.id.btn_amigo)
+        amigo?.setOnClickListener(this)
+
 
         perfilButton.setOnClickListener(){
             irAPerfil()
@@ -34,6 +38,10 @@ class menu_principal : AppCompatActivity(), View.OnClickListener {
             R.id.lupaSearchButton -> {
                 startActivity(Intent(this@menu_principal, buscador_digital::class.java))
             }
+            R.id.btn_amigo -> {
+                startActivity(Intent(this@menu_principal, Buscaramigos::class.java))
+            }
+
         }
 
     }
@@ -41,4 +49,6 @@ class menu_principal : AppCompatActivity(), View.OnClickListener {
     fun irAPerfil(){
         startActivity(Intent(this@menu_principal, perfilUsuario::class.java))
     }
+
+
 }

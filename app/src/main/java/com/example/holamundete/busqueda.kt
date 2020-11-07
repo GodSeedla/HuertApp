@@ -31,6 +31,8 @@ class busqueda : AppCompatActivity() {
     }
 
 
-
+    companion object{
+        lateinit var listamigos: String
+    }
 
 }
