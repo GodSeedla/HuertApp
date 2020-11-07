@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#94E8F3"
+    tools:context=".perfilAmigo">
+
+    <TextView
+        android:id="@+id/txt_cultivosAmigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="casual"
+        android:text="Cantidad de cultivos:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/edit_numCultivosAmigo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nombrePerfilAmigo" />
+
+    <TextView
+        android:id="@+id/txt_nombrePerfilAmigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="casual"
+        android:hint="Nombre del usuario"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#3946A1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_fotoPerfil2" />
+
+    <TextView
+        android:id="@+id/edit_numCultivosAmigo"
+        android:layout_width="62dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="casual"
+        android:hint="N°"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/txt_cultivosAmigo"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nombrePerfilAmigo" />
+
+    <ImageView
+        android:id="@+id/imageView_fotoPerfil2"
+        android:layout_width="202dp"
+        android:layout_height="299dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_kirb" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

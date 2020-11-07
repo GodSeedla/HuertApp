@@ -18,6 +18,7 @@ class Buscaramigos : AppCompatActivity(), View.OnClickListener {
     private var propietario = menu_login.correo
     private var contadoraux:Long = 0
     private var largoArray:Int = 0
+    var amigoText = String()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,9 +28,9 @@ class Buscaramigos : AppCompatActivity(), View.OnClickListener {
         btn_agregar.setOnClickListener() {
 
             // println(db.collection("usuario").document("ro@banu.com").("Amigos"))
-            var amigotext = BuscaramigoTextView.text.toString()
+             amigoText = BuscaramigoTextView.text.toString()
 
-            if (amigotext.isNotEmpty()) {
+            if (amigoText.isNotEmpty()) {
                 //no tira el array de la firestore hacia listaprueba.
 
                 db.collection("usuario").document(propietario).get().addOnSuccessListener {
@@ -43,7 +44,7 @@ class Buscaramigos : AppCompatActivity(), View.OnClickListener {
                 docRef.get().addOnSuccessListener { document ->
                     if (document.exists()) {
 
-                        listaprueba.add(amigotext)
+                        listaprueba.add(amigoText)
 
                         docRef.update(mapOf("Amigos" to listaprueba))
 
@@ -70,6 +71,14 @@ class Buscaramigos : AppCompatActivity(), View.OnClickListener {
             }
             btn_perfil.setOnClickListener() {
                 //Envía al perfil del usuario buscado
+                amigoText = BuscaramigoTextView.text.toString()
+                correoUsuarioAmigo = amigoText
+                if (amigoText.isNotEmpty()) {
+                    startActivity(Intent(this@Buscaramigos, perfilAmigo::class.java))
+                }else{
+                    Toast.makeText(this, "Rellene los parámetros", Toast.LENGTH_SHORT).show()
+                }
+
             }
 
             btn_listamigos.setOnClickListener() {
@@ -96,6 +105,7 @@ class Buscaramigos : AppCompatActivity(), View.OnClickListener {
 
     companion object{
         var array = arrayListOf<String>()
+        var correoUsuarioAmigo = ""
     }
 
 }
