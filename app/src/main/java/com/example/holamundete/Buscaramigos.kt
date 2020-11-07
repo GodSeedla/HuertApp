@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_buscar_amigos.*
-import kotlinx.android.synthetic.main.activity_lista_pilar.*
+
 
 class Buscaramigos : AppCompatActivity(), View.OnClickListener {
     /*private var agregar: Button? = null
